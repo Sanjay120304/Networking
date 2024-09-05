@@ -1,0 +1,11 @@
+from socket import *
+c1 = socket(AF_INET,SOCK_DGRAM)
+msg = input("Enter your Message in Lower Case..")
+c1.sendto(msg.encode(),('172.16.116.147',10002))
+modi,addr = c1.recvfrom(1028)
+mod_mes=modi.decode()
+rev,addr=c1.recvfrom(1028)
+rev_mes=rev.decode()
+print(mod_mes) 
+print(rev_mes)
+c1.close()
